@@ -18,7 +18,7 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-//            'borrow' => ($this->mergeWhen())->whenLoaded('loan'),
+            'borrow' => $this->whenLoaded('loan'),
             $this->mergeWhen($request->routeIs('users.show'), function () {
                     return [
                         'email_verified_at' => $this->email_verified_at,
